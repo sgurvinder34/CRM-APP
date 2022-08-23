@@ -15,11 +15,11 @@ db.on("error",()=>{
 })
 db.once("open",()=>{
     console.log("You are connected to mongodb")
-    //init()
+    init()
 })
 async function init(){
     try{
-        await User.collection.drop()
+        await db.db.dropCollection("users")
     }
     catch(err){
         console.log("There was an error while dropping the table in mongoose",err)
