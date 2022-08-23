@@ -49,8 +49,19 @@ const validation=async(req,res,next)=>{
 
 }
 
+const validation2=(req,res,next)=>{
+    if(!req.body.userId){
+        return res.status(400).send("UserId Required")
+    }
+    if(!req.body.password){
+        return res.status(400).send("Password Required")
+    }
+    next()
+}
+
 const middlewarevalidation={
-    validation:validation
+    validation:validation,
+    validation2:validation2
 }
 
 module.exports=middlewarevalidation
